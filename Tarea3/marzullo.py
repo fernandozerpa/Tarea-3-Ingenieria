@@ -3,6 +3,7 @@
  @authors: Fernando Zerpa 05-39081
            Alejandra Preciado 07-41384
 '''
+import functools
 
 class Marzullo: 
 
@@ -13,9 +14,12 @@ class Marzullo:
             tabla.append((ini,-1))
             tabla.append((fin,+1))
      
-        def getKey(item):
-            return item[0]
-        tabla.sort(key = getKey)
+        def comparar(x, y):
+            comp = (x[0]>y[0]) - (x[0]<y[0])
+            if comp == 0:
+                comp = -((x[1]>y[1]) - (x[1]<y[1])) # regla para el mismo offset y type opuesto
+            return comp
+        tabla.sort(key = functools.cmp_to_key(comparar))
      
         best = 0
         cnt = 0
