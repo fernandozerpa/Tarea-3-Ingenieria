@@ -11,19 +11,30 @@ from marzullo import Marzullo
 
 class PruebaMarzullo(unittest.TestCase):
 
-
+    '''Prueba Simple'''
     def testPruebaSimple(self):
         prueba = Marzullo()
-        self.assertEqual(prueba.algoritmo_Marzullo((('08:00','12:00'),('11:00','13:00'),('10:00','12:00'))), ('11:00','12:00')) 
-    
+        self.assertTrue(prueba.algoritmo_Marzullo((('08:00','12:00'),('11:00','13:00'),('10:00','12:00')))) 
+        
+    '''Prueba dos intervalos con la misma cantidad de puestos reservados'''
     def testDosIntervalosMismaCantidadDePuestos(self):
         prueba = Marzullo()
-        self.assertEqual(prueba.algoritmo_Marzullo((('08:00','9:00'),('08:00','12:00'),('10:00','12:00'))), ('08:00','09:00')) 
+        self.assertTrue(prueba.algoritmo_Marzullo((('08:00','9:00'),('08:00','12:00'),('10:00','12:00')))) 
     
+    '''Prueba para Offset iguales y tipe opuestos'''
     def testOffsetIgualesTypeOpuestos(self):
         prueba = Marzullo()
-        self.assertEqual(prueba.algoritmo_Marzullo((('11:00','15:00'),('08:00','15:00'),('9:00','11:00'),('10:00','14:00'),('11:00','14:00'),('09:00','10:00'),('09:00','13:00'),('12:00','15:00'),('08:00','11:00'),('14:00','15:00'))), ('12:00','13:00'))
+        self.assertTrue(prueba.algoritmo_Marzullo((('11:00','15:00'),('08:00','15:00'),('9:00','11:00'),('10:00','14:00'),('11:00','14:00'),('09:00','10:00'),('09:00','13:00'),('12:00','15:00'),('08:00','11:00'),('14:00','15:00'))))
 
-
+    '''Caso en que se reserva el mismo puesto mas de 10 veces a la misma hora'''    
+    def testMaximoDeReservasDeUnPuesto(self):
+        n = []
+        i=0
+        while (i <11):
+            n.append(('08:00','09:00'))
+            i=i+1  
+        prueba = Marzullo()
+        self.assertFalse(prueba.algoritmo_Marzullo(n))
+            
 if __name__ == "__main__":
     unittest.main()
