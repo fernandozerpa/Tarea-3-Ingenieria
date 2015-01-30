@@ -1,8 +1,10 @@
 '''
- marzullo.py
+ marzullo.py: Modulo que usa el algoritmo de marzullo para manejar reservas en un estacionamiento
+ 
  @authors: Fernando Zerpa 05-39081
            Alejandra Preciado 07-41384
 '''
+
 import functools
 import datetime
 
@@ -56,5 +58,5 @@ class Marzullo:
                 bestend   = tabla[i+1][0]
         beststart = datetime.time(beststart)
         bestend = datetime.time(bestend)
-        return ( best <= 10)
+        return ( best <= 10) # Devuelve True si acepta la reservacion y False en caso contrario
         
