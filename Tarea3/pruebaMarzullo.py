@@ -1,10 +1,9 @@
 '''
- pruebaMarzullo.py
+ pruebaMarzullo.py: Modulo de pruebas para el Algoritmo de reservas enun estacionamiento
+ 
  @authors: Fernando Zerpa 05-39081
            Alejandra Preciado 07-41384
 '''
-
-
 
 import unittest
 from marzullo import Marzullo
