@@ -56,6 +56,5 @@ class Marzullo:
                 bestend   = tabla[i+1][0]
         beststart = datetime.time(beststart)
         bestend = datetime.time(bestend)
-        '''beststart.strftime('%H:%M'), bestend.strftime('%H:%M')'''
         return ( best <= 10)
         
