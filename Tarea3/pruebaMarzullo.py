@@ -35,12 +35,30 @@ class PruebaMarzullo(unittest.TestCase):
             i=i+1  
         prueba = Marzullo()
         self.assertFalse(prueba.algoritmo_Marzullo(n))
+        
+    '''Caso Horas reservadas Cruzadas'''
+    def testHorasCruzadas(self):
+        n = []
+        i=0
+        while (i <9):
+            n.append(('06:00','7:00'))
+            i=i+1  
+        while (i <9):
+            n.append(('07:00','8:00'))
+            i=i+1
+        while (i <9):
+            n.append(('08:00','9:00'))
+            i=i+1    
+        prueba = Marzullo()
+        n.append(('06:00','9:00'))
+        self.assertTrue(prueba.algoritmo_Marzullo(n))
+    
     
     '''Caso de llenar el estacionemiento'''    
     def testEstacionemientoLleno(self):
         n = []
         i=0
-        while (i <9):
+        while (i <10):
             n.append(('06:00','18:00'))
             i=i+1    
         prueba = Marzullo()
